@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+
+<html class="no-js" lang="en">
+<head>
+  <title>khmer online shop</title>
+	<%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
+	<%= javascript_include_tag "application", "data-turbolinks-track" => true %> 
+  	<%= stylesheet_link_tag 'style.css'%>
+  	<%= stylesheet_link_tag 'left_menu.css' %>
+  	<%= stylesheet_link_tag 'bootstrap.css bootstrap.min.css' %>
+  	<%= javascript_include_tag 'bootstrap.js' %>
+  	<%= javascript_include_tag 'script.js' %>  	
+  	<%= javascript_include_tag "menu.js" %> 
+  	
+  	
+  	<%= javascript_include_tag 'jquery.wheelmenu.js' %>  
+  	<%= stylesheet_link_tag 'left_menu.css' %>
+  	<%= javascript_include_tag 'menu2.js' %>
+  	
+  	<%= stylesheet_link_tag "zoom_img" %>
+  	<%= stylesheet_link_tag "jquery.jqzoom" %>
+  	<%= javascript_include_tag "jquery.jqzoom-core" %>
+  	<%= javascript_include_tag "jquery-1.6" %>
+  
+	<%= csrf_meta_tags %>	
+	
+<script type="text/javascript">
+$(document).ready(function() {
+	$('.jqzoom').jqzoom({
+            zoomType: 'standard',
+            lens:true,
+            preloadImages: false,
+            alwaysOn:false
+        });	
+});
+</script>
+
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
+ 
+	
+  	<%= stylesheet_link_tag 'wheelmenu.css' %>
+  	<%= stylesheet_link_tag 'left_menu2.css' %>
+  	<%= javascript_include_tag 'jquery.wheelmenu.js' %>  
+		<script>
+	  $(document).ready(function(){
+			$(".wheel-button").wheelmenu({
+        trigger: "hover",
+        animation: "fly",
+        animationSpeed: "fast"
+      });
+		});
+		
+	</script>
+
+</head>
+<body>
+	<script>
+	  $(document).ready(function(){
+			$(".wheel-button").wheelmenu({
+        trigger: "hover",
+        animation: "fly",
+        animationSpeed: "fast"
+      });
+		});
+		
+	</script>
+	<script>
+		$(function() { 
+			$('#plus-ex').click(function(){  
+				if($(this).hasClass('plus')){
+					$(this).removeClass('plus')
+					$(this).addClass('ex');
+					$('#moment-buttons li').addClass('out');
+				} else {
+					$(this).removeClass('ex');
+					$(this).addClass('plus');
+					$('#moment-buttons li').removeClass('out');
+				}
+				return false;
+			});
+		});
+	</script>
+
+<script>
+	$(function () {
+	setNavigation();
+});
+function setNavigation() {
+	var path = window.location.pathname;
+	path = path.replace(/\$/, "");
+	path = decodeURIComponent(path);
+
+	$(".nav a").each(function () {
+		var href = $(this).attr('href');
+		if(path.substring(0,href.length) == href){
+			$(this).closest('li').addClass('active');
+		}
+	});
+}
+</script>
+	
+	<div class="container" data-no-turbolink>
+		<div class="wrapper">
+			<div class="header hidden-xs">
+				<%= image_tag 'Safehome090714T.gif', class:'top-adv' %>
+			</div>
+			<div class="clear"></div>
+			<div class="masthead top-menu" data-no-turbolink>				
+				<ul class="nav nav-justified">
+					<li class="home"><a href="/products">HOME</a></li>
+					<li><a href="/products/sell_house">HOUSE</a></li>
+					<li><a href="/products/sell_land">LAND</a></li>
+					<li><a href="/products/sell_car">CAR</a></li>
+					<li><a href="/products/sell_moto">MOTOCYCLE</a></li>
+					<li><a href="/products/sell_computer">COMPUTER</a></li>
+					<li><a href="/products/sell_phone">PHONE</a></li>
+					<li><a href="/products/sell_bicycle">BYCICLE</a></li>
+					<li><a href="/products/sell_other">OTHER</a></li>
+				</ul>				
+			</div>
+			<div class="left hidden-xs">
+				<%= image_tag 'Safehome210414Ear.gif' %>
+			</div>			
+			<div class="content col-xs-12">
+				<div class="main_content">
+					<div class="main_left col-xs-4 col-md-4">
+						<ul class="nav">
+							<li class="active">
+								<a href = '#'>Main Item</a>
+							</li>
+						</ul>
+						<div id="jquery-script-menu">
+							<div class="jquery-script-center">				
+								<div class="jquery-script-ads"><script type="text/javascript">
+									google_ad_client = "ca-pub-2783044520727903";
+									google_ad_slot = "2780937993";
+									google_ad_width = 728;
+									google_ad_height = 90;
+									</script>						
+								</div>
+								<div class="jquery-script-clear"></div>
+							</div>
+						</div>	
+					<div id="add-moment" data-no-turbolink>					
+						<a href="#" id="plus-ex" class="plus"><%= image_tag 'buy.png', alt:"Add Moment" %></a>
+						<div id="add-moment">
+							<ul id="moment-buttons">
+								<li class="icon-picture"><a href="/products/sell_house"><%= image_tag 'house.png', alt:"Picture" %></a></li>
+								<li class="icon-people"><a href="/products/sell_land"><%= image_tag 'land.png', alt:"Picture2" %></a></li>
+								<li class="icon-place"><a href="/products/sell_car"><%= image_tag 'car1.png', alt:"Picture3" %></a></li>
+								<li class="icon-music"><a href="/products/sell_moto"><%= image_tag 'motocycle.png', alt:"Picture4" %></a></li>
+								<li class="icon-thought"><a href="/products/sell_computer"><%= image_tag 'computer.png', alt:"Picture5" %></a></li>
+								<li class="icon-sleep"><a href="/products/sell_phone"><%= image_tag 'phone.png', alt:"Picture6" %></a></li>
+								<li class="icon-sleep"><a href="/products/sell_bycicle"><%= image_tag 'bicycle.png', alt:"Picture6" %></a></li>
+							</ul>
+						</div>														
+					</div>
+					 
+					<!-- FOR MENU SALE USE ONLY -->
+					
+					<div class="menu2" data-no-turbolink>
+						 <div class="wrapper">
+						 	<div class="main">
+							    <a href="#wheel" class="wheel-button">
+							     <span>Sale</span>
+							    </a>		  
+						      <ul id="wheel"  data-angle="all">
+						        <li class="item"><a href="#home">House</a></li>
+						        <li class="item"><a href="#home">Land</a></li>
+						        <li class="item"><a href="#home">Car</a></li>
+						        <li class="item"><a href="#home">Motocycle</a></li>
+						        <li class="item"><a href="#home">Computer</a></li>
+						        <li class="item"><a href="#home">Phone</a></li>
+						        <li class="item"><a href="#home">Bicycle</a></li>
+						        <li class="item"><a href="#home">PC Accessories</a></li>
+						        <li class="item"><a href="#home">Phone Accessories</a></li>
+						        <li class="item"><a href="#home">Other</a></li>
+						      </ul>
+						 	</div>
+						 </div>
+					</div>					
+					
+					<div class="user_register" data-no-turbolink>
+						<% if current_user %>
+											
+						<% else %>					
+							<a href='/users/new'>Register</a> | 
+							<a href='/sessions/new'>Login</a>
+						<% end %>
+						
+					</div>
+				</div>
+				
+					<div class="main_body col-xs-8 col-md-8">
+						
+						<% if current_user %>
+							<div class="user" data-no-turbolink>
+								<!--<p class="username">Welcome: <%= (current_user.email) %></p>-->
+								<p class="login_email">You are logged in as :  <%= (current_user.email) %></p>
+								<a href="log_out" class="logout">Log out</a>
+							</div> 					
+						<% else %>				
+						
+						<% end %>
+						<div class="last_content">
+							
+							<%= yield  %>							
+						</div>															
+					</div>
+					
+					<!--	CONTENT FOOTER ADVERTISE  -->
+					<div class="footer_content_adv">
+							<%= image_tag 'Central030314.gif' %>
+					</div>		
+				</div>						
+			</div>
+			<div class="right hidden-xs">
+				<%= image_tag 'KoungY8112012.gif' %>
+				<%= image_tag 'safetyplus.gif' %>
+				<%= image_tag 'VStar240114.gif' %>
+				<%= image_tag 'yongfa.gif' %>
+			</div>
+			<div class="clear"></div>
+			<div class="footer">
+				<div class="info">				
+					<h6>Copyright 2014 </h6>
+					<p class="contact">Contact Advertise : <strong> 093 568 510 </strong></p>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

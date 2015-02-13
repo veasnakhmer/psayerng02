@@ -1,0 +1,59 @@
+<%= form_for(@product) do |f| %>
+  <% if @product.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@product.errors.count, "error") %> prohibited this product from being saved:</h2>
+
+      <ul>
+      <% @product.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+	<div id="textbox">
+	  <div class="field">
+	    <%= f.label :name %><br>
+	    <%= f.text_field :name %>
+	  </div>
+	  <div class="field">
+	    <%= f.label :phone_number %><br>
+	    <%= f.text_field :phone %>
+	  </div>
+	  <div class="field">
+	    <%= f.label :email %><br>
+	    <%= f.text_field :email %>
+	  </div>
+	  <div class="field">
+	    <%= f.label :price %><br>
+	    <%= f.number_field :price %>
+	  </div>
+	  <div class="field">
+	    <%= f.label :category %><br>
+	    <%= f.select :category, %w{House Land Car Motocycle Computer Phone Bicycle Other}, :prompt =>'select a category' %>
+	  </div>
+	  <div class="field">
+	    <%= f.label :type %><br>
+	    <%= f.select :type, %w{Sell Buy}, :prompt =>'select a type' %>
+	  </div>
+	  <div class="field">
+	    <%= f.label :description %><br>
+	    <%= f.text_area :description %>
+	  </div>
+	  <div class="field">
+	    <%= f.label :select_image_1 %><br>
+	    <%= f.file_field :image %>
+	  </div>
+	  <div class="field">
+	    <%= f.label :select_image_2 %><br>
+	    <%= f.file_field :image2 %>
+	  </div>
+	  <div class="field">
+	    <%= f.label :select_image_3 %><br>
+	    <%= f.file_field :image3 %>
+	  </div>
+	  <div class="actions">
+	    <%= f.submit %>
+	  </div>
+  </div>
+<% end %>
+

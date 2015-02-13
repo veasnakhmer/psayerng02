@@ -1,0 +1,75 @@
+
+<% if current_user %>
+		<h1>Listing Other Products</h1>
+		<div class="new" data-no-turbolink>
+			<%= link_to 'New Adv', new_product_path %>
+		</div>
+		<table>
+		  <thead>
+		    <tr>
+		      <th>Photo</th>
+		      <th>Name</th>     
+		      <th>Price</th>     
+		      <th>Option</th>		     
+		    </tr>
+		  </thead>
+		  <tbody>
+		  	<% @products.where(:category => 'Other' ).each do |product| %>
+		       <% if(product.email == current_user.email) %>
+		      <tr>
+			  <td><%= image_tag product.image.url %></td>
+		        <td class="product_name">
+			       	<%= link_to (product.name), product %>
+			       	<div id="overflow_text"><%= product.description %></div>	
+			       	</td>
+			        <td class="price"><p class="price_align">$ <%= product.price %></p></td>
+			        <td>
+			        	<p class="price_align">
+				        	<%= link_to 'Edit', edit_product_path(product) %> <br />
+				        	<%= link_to 'Delete', product, method: :delete, data: { confirm: 'Are you sure?' } %>
+			        	</p>
+			        </td>
+		      </tr>
+		      <% end %>
+		    <% end %>
+		  </tbody>
+		</table>		
+		<br>		
+		
+	<% else %>
+		<h1>*** Listing Other Products For Sale ***</h1>		
+		<table>
+		  <thead>
+		    <tr>
+		      <th>Photo</th>
+		      <th>Name</th>     
+		      <th class="header_price">Price</th>     
+		      <th>Date Post</th>		     
+		    </tr>
+		  </thead>
+		  <tbody>
+		    <% @products.where(:category => 'Other' ).each do |product| %>
+		      <tr>
+		      	<td><%= image_tag product.image.url %></td>
+		        <td class="product_name">
+			       	<%= link_to (product.name), product %>
+			       	<div id="overflow_text"><%= product.description %></div>	
+			       	</td>
+			        <td class="price">
+			        	<p class="price_align">
+			        	 $ <%= product.price %>
+			        	 </p>
+			         </td>
+			        <td>
+			        	<p class="location">
+			        		<%= product.created_at %>
+			           	</p>
+			        </td>	        
+		      </tr>
+		    <% end %>
+		  </tbody>
+		</table>
+	<% end %>
+<div class="paginate">
+	<%= will_paginate @products %>
+</div>

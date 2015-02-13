@@ -1,0 +1,35 @@
+<stylesheet_link_tag "style.css">
+<h1>Hello the world!</h1>
+<% javascript_include_tag "vendor/modernizr" %>
+<div class="main">
+	<div class="left">
+		<%= image_tag "BestShare100314.gif" %><br \>
+		<%= image_tag "mhm.gif" %>
+		Left side bar.		
+		
+	</div>
+	<div class="content">
+		<h2>Introduction to Phnom Penh</h2>
+		def banner_editprocess  uploaded_io = params[:banner]    if uploaded_io != nil && uploaded_io != ""
+      File.open(Rails.root.join('app','assets','images','banner', uploaded_io.original_filename), 'wb') do |file|
+      file.write(uploaded_io.read)    end  end
+  r = Banner.find(params[:id])
+  params.each do |k, v|
+    r[k] = v
+  end
+  if uploaded_io != nil && uploaded_io != ""
+    if r.banner != uploaded_io.original_filename
+      if r.banner != "" && r.banner != nil
+        File.delete(Rails.root.join('app','assets','images','banner', r.banner))
+      end
+    end
+    r.banner = uploaded_io.original_filename
+  end. def banner_editprocess uploaded_io = params[:banner] if uploaded_io != nil && uploaded_io != "" File.open(Rails.root.join('app','assets','images','banner', uploaded_io.original_filename), 'wb') do |file| file.write(uploaded_io.read) end end r = Banner.find(params[:id]) params.each do |k, v| r[k] = v end if uploaded_io != nil && uploaded_io != "" if r.banner != uploaded_io.original_filename if r.banner != "" && r.banner != nil File.delete(Rails.root.join('app','assets','images','banner', r.banner)) end end r.banner = uploaded_io.original_filename end 
+	</div>
+	<div class="right">
+	<%= image_tag "ServingWeb210114.gif" %><br />
+	<%= image_tag "PCU060913.gif" %>
+		this is right side.
+	</div>		
+</div>
+
